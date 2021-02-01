@@ -1,38 +1,36 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-04 16:07:36
- * @LastEditTime : 2020-01-04 17:54:25
- * @LastEditors  : Please set LastEditors
- * @Description: 营销控制->首页疯狂抢购->疯狂抢购列表
- * @FilePath: 
- */
+
 import React, { Component } from 'react'
-import styles from './BuyIndex.css'
 import Link from 'umi/link';
-import { Row, Col , Input , Button , Table, Tag , Select, Popconfirm } from 'antd';
+import { Row, Col, Input, Button, Table, Tag, Select, Popconfirm } from 'antd';
+import styles from './BuyIndex.css'
+
 const { Option } = Select;
 export default class BuyIndex extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      page:{
+      page: {
         // current: 1,
         defaultCurrent: 1,
         defaultPageSize: 10,
         pageSize: 10,
-        total: 35
-      }
+        total: 35,
+      },
     }
   }
-  componentDidMount(){
+
+  componentDidMount() {
       console.log(this.props)
   }
+
   handleDelete = key => {
     console.log(key)
   }
-  onChangePage = (pagination) =>{
+
+  onChangePage = pagination => {
       console.log(pagination)
   }
+
     render() {
         const columns = [
             {
@@ -78,14 +76,14 @@ export default class BuyIndex extends Component {
                 (
                   <div>
                     <Popconfirm title="确认删除?" onConfirm={() => this.handleDelete(record.key)} >
-                      <Button type="danger" size='small'>取消</Button>
+                      <Button type="danger" size="small">取消</Button>
                     </Popconfirm>
                   </div>
-                  
+
                 ),
             },
           ];
-          
+
           const data = [
             {
               key: '1',
@@ -112,7 +110,7 @@ export default class BuyIndex extends Component {
         return (
             <div className={styles.ShopIndex}>
                 <div className={styles.ShopIndexBox}>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={12} md={8} lg={6} xl={4}>
                             <Input placeholder="请输入商品名称" />
                         </Col>
@@ -148,19 +146,19 @@ export default class BuyIndex extends Component {
                             </Select>
                         </Col> */}
                         <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
-                            <Button type="primary"  style={{width: '100%'}}>查找</Button>
+                            <Button type="primary" style={{ width: '100%' }}>查找</Button>
                         </Col>
                         <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
-                            <Button type="primary" style={{width: '100%'}}>
-                                <Link to='/index/marketing/buy/add'>添加</Link> 
+                            <Button type="primary" style={{ width: '100%' }}>
+                                <Link to="/index/marketing/buy/add">添加</Link>
                             </Button>
                         </Col>
                     </Row>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <Table columns={columns} dataSource={data} onChange={this.onChangePage} pagination={this.state.page} />
                         </Col>
-                    </Row>    
+                    </Row>
                 </div>
             </div>
         )

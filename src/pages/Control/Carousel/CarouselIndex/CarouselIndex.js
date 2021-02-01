@@ -7,84 +7,88 @@
  * @FilePath: \umi-admin\src\pages\Control\Carousel\Carousel.js
  */
 import React, { Component } from 'react'
-import styles from './CarouselIndex.css'
 import router from 'umi/router';
 import moment from 'moment'
 import Link from 'umi/link';
-import { Row, Col ,Button , Table, Divider, Popconfirm } from 'antd';
+import { Row, Col, Button, Table, Divider, Popconfirm } from 'antd';
+import styles from './CarouselIndex.css'
 
 export default class CarouselIndex extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-          page:{
+          page: {
             current: 1,
             defaultCurrent: 1,
             defaultPageSize: 10,
             pageSize: 10,
-            total: 0
+            total: 0,
           },
-          dataList:[]
+          dataList: [],
         }
       }
-      handleDelete = key => {  //removeSwiper
-        let This = this
-        this.$https.get('index/removeSwiper',{
-          params:{
-            id: key
-          }
+
+      handleDelete = key => { // removeSwiper
+        const This = this
+        this.$https.get('index/removeSwiper', {
+          params: {
+            id: key,
+          },
         })
-        .then(res=>{
-          if(res.code === 0){
-            let dataList = This.state.dataList
-                dataList.forEach((item,index)=>{
-                  if(item.id === key){
-                    dataList.splice(index,1)
+        .then(res => {
+          if (res.code === 0) {
+            const { dataList } = This.state
+                dataList.forEach((item, index) => {
+                  if (item.id === key) {
+                    dataList.splice(index, 1)
                   }
                 })
                 This.setState({
-                  dataList
+                  dataList,
                 })
           }
         })
       }
-      onChangePage = (pagination, filters, sorter) =>{
-        let page = this.state.page
+
+      onChangePage = (pagination, filters, sorter) => {
+        const { page } = this.state
             page.current = pagination.current
         this.setState({
-          page
+          page,
         })
         this.info()
       }
-      componentDidMount(){
+
+      componentDidMount() {
         this.info()
       }
 
         // 初始化方法
-      info=()=>{
-        let This = this
-        this.$https.get('nottoken/getSwipers',{
-          params:{
-            current:this.state.page.current,
-            pageSize: this.state.page.pageSize
-          }
+      info=() => {
+        const This = this
+        this.$https.get('nottoken/getSwipers', {
+          params: {
+            current: this.state.page.current,
+            pageSize: this.state.page.pageSize,
+          },
         })
-        .then(res=>{
-          let page = this.state.page
+        .then(res => {
+          const { page } = this.state
               page.total = res.data.total
             This.setState({
               page,
-              dataList: res.data.list.map( item=>{
+              dataList: res.data.list.map(item => {
                 item.carousel = JSON.parse(item.carousel)
-                item.shows = item.shows === 1 ? true : false
+                item.shows = item.shows === 1
                 item.key = item.id
                 return item;
-              })
+              }),
             })
         })
       }
+
        // 编辑
-      handleEdit = key =>{
+      handleEdit = key => {
         router.push({
           pathname: '/index/control/carousel/add',
           query: {
@@ -92,6 +96,7 @@ export default class CarouselIndex extends Component {
           },
         });
       }
+
         render() {
             const columns = [
                 {
@@ -105,10 +110,10 @@ export default class CarouselIndex extends Component {
                   dataIndex: 'carousel',
                   key: 'carousel',
                   render: image => (
-                    <div key='1'>
-                      {image.map((item,index)=> <img key={index} style={{width: '50px'}} alt={index} src={item.url} />)}
+                    <div key="1">
+                      {image.map((item, index) => <img key={index} style={{ width: '50px' }} alt={index} src={item.url} />)}
                     </div>
-                  )
+                  ),
                 },
                 {
                   title: '类型',
@@ -139,35 +144,33 @@ export default class CarouselIndex extends Component {
                   render: (text, record) =>
                     (
                       <div>
-                        <Button type="primary" size='small' onClick={() => this.handleEdit(record.key)}>编辑</Button>
+                        <Button type="primary" size="small" onClick={() => this.handleEdit(record.key)}>编辑</Button>
                         <Divider type="vertical" />
-                        <Popconfirm title="确认删除?" okText='确认' cancelText="取消"  onConfirm={() => this.handleDelete(record.key)} >
-                          <Button type="danger" size='small'>删除</Button>
+                        <Popconfirm title="确认删除?" okText="确认" cancelText="取消" onConfirm={() => this.handleDelete(record.key)} >
+                          <Button type="danger" size="small">删除</Button>
                         </Popconfirm>
                       </div>
-                      
+
                     ),
                 },
               ];
         return (
             <div className={styles.Carousel}>
                 <div className={styles.CarouselBox}>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
-                            <Button type="primary" style={{width: '100%'}}>
-                                <Link to='/index/control/carousel/add'>添加</Link> 
+                            <Button type="primary" style={{ width: '100%' }}>
+                                <Link to="/index/control/carousel/add">添加</Link>
                             </Button>
                         </Col>
                     </Row>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <Table columns={columns} dataSource={this.state.dataList} onChange={this.onChangePage} pagination={this.state.page} />
                         </Col>
-                    </Row>  
+                    </Row>
                 </div>
             </div>
         )
     }
 }
-
-

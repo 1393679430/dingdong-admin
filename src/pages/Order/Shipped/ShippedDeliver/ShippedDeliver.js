@@ -1,19 +1,13 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-14 16:27:13
- * @LastEditTime: 2019-12-17 15:24:47
- * @LastEditors: Please set LastEditors
- * @Description: 订单管理 待发货 发货
- * @FilePath: \umi-admin\src\pages\Order\Shipped\ShippedDeliver\ShippedDeliver.js
- */
+
 import React, { Component } from 'react'
 
+import { Row, Col, Table, Steps } from 'antd';
 import styles from './ShippedDeliver.css'
 
-import ShippedFrom from '../ShippedFrom/ShippedFrom'  //填写发货表单
-import ShippedSubmit from '../ShippedSubmit/ShippedSubmit'  //确认提交发货表单
+import ShippedFrom from '../ShippedFrom/ShippedFrom' // 填写发货表单
+import ShippedSubmit from '../ShippedSubmit/ShippedSubmit' // 确认提交发货表单
 import ShippedComplete from '../ShippedComplete/ShippedComplete'
-import { Row, Col , Table,  Steps } from 'antd';
+
 const { Step } = Steps;
 
 // 订单信息
@@ -21,7 +15,7 @@ const columns = [
     {
       title: '商品编号',
       dataIndex: 'name',
-      key: 'name'
+      key: 'name',
     },
     {
       title: '商品名称',
@@ -36,15 +30,15 @@ const columns = [
     {
       title: '件数',
       key: 'tags',
-      dataIndex: 'tags'
+      dataIndex: 'tags',
     },
     {
       title: '金额',
       key: 'picks',
-      dataIndex: 'picks'
+      dataIndex: 'picks',
     },
   ];
-  
+
   const data = [
     {
       key: '1',
@@ -52,7 +46,7 @@ const columns = [
       age: 12,
       address: '1.99',
       tags: 1,
-      picks: 0.99
+      picks: 0.99,
     },
     {
         key: '2',
@@ -60,7 +54,7 @@ const columns = [
         age: 32,
         address: '5.99',
         tags: 2,
-        picks: 0.99
+        picks: 0.99,
     },
     {
         key: '3',
@@ -68,41 +62,43 @@ const columns = [
         age: 2,
         address: '2.99',
         tags: 1,
-        picks: 1.99
+        picks: 1.99,
     },
   ];
 
 
 export default class ShippedDeliver extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            fromSubmit : {
+            fromSubmit: {
                 name: '张三',
                 address: '北京市朝阳区宣武门大街1760号',
                 tel: '18165456210',
                 express: 1,
-                expresscode: 'KD1655446464115554'
+                expresscode: 'KD1655446464115554',
             },
-            step: 0   // 1 -> 填写快递  2 -> 确认填写信息  3 -> 完成
+            step: 0, // 1 -> 填写快递  2 -> 确认填写信息  3 -> 完成
         }
     }
+
     // 修改快递信息
-    changeFrom = (state) =>{   
-        let stateSrc = {...state}
-        stateSrc.express=state.express[0]
+    changeFrom = state => {
+        const stateSrc = { ...state }
+        stateSrc.express = state.express[0]
         this.setState({
-            fromSubmit: {...stateSrc},
-            step : 1
+            fromSubmit: { ...stateSrc },
+            step: 1,
         })
-    
     }
+
     // 提交快递信息时返回上一步
-    goBack = (num) => {
+    goBack = num => {
         this.setState({
-            step: num
+            step: num,
         })
     }
+
     render() {
         return (
             <div className={styles.ShippedDeliver}>
@@ -115,8 +111,8 @@ export default class ShippedDeliver extends Component {
                             <Steps current={1}>
                                 <Step title="生成订单" />
                                 <Step title="待发货" />
-                                <Step title="待收货"  />
-                                <Step title="完成"  />
+                                <Step title="待收货" />
+                                <Step title="完成" />
                             </Steps>
                         </Col>
                     </Row>
@@ -181,7 +177,7 @@ export default class ShippedDeliver extends Component {
                             <Steps current={this.state.step}>
                                 <Step title="填写快递信息" />
                                 <Step title="确认快递信息" />
-                                <Step title="完成"  />
+                                <Step title="完成" />
                             </Steps>
                         </Col>
                     </Row>
@@ -191,7 +187,7 @@ export default class ShippedDeliver extends Component {
                                 { this.state.step === 0 ? (
                                     <ShippedFrom {...this.state.fromSubmit} changeFrom={this.changeFrom} />
                                 ) : (
-                                    this.state.step === 1 ?  <ShippedSubmit {...this.state.fromSubmit} goBack={this.goBack} /> : <ShippedComplete {...this.state.fromSubmit} />
+                                    this.state.step === 1 ? <ShippedSubmit {...this.state.fromSubmit} goBack={this.goBack} /> : <ShippedComplete {...this.state.fromSubmit} />
                                 )}
                                {/* <ShippedFrom {...this.state.fromSubmit} changeFrom={this.changeFrom} />
                                <ShippedSubmit {...this.state.fromSubmit} goBack={this.goBack} />

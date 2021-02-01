@@ -1,15 +1,8 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-04 16:07:36
- * @LastEditTime: 2019-12-12 17:47:04
- * @LastEditors: Please set LastEditors
- * @Description: 产品管理->评论管理->评论列表
- * @FilePath: \umi-admin\src\pages\Product\Shoping\ShopIndex\ShopIndex.js
- */
+
 import React, { Component } from 'react'
+import { Row, Col, Input, Button, Table, Popconfirm, Form } from 'antd';
 import styles from './CommentIndex.css'
 // import Link from 'umi/link';
-import { Row, Col , Input , Button , Table, Popconfirm, Form } from 'antd';
 
 const EditableContext = React.createContext();
 
@@ -104,12 +97,12 @@ export default class ShopIndex extends Component {
           {
             title: '用户名',
             dataIndex: 'name',
-            width: '30%'
+            width: '30%',
           },
           {
             title: '评论内容',
             dataIndex: 'age',
-            
+
           },
           {
             title: '回复',
@@ -120,14 +113,14 @@ export default class ShopIndex extends Component {
             title: 'operation',
             dataIndex: 'operation',
             render: (text, record) =>
-              this.state.dataSource.length >= 1 ? (
+              (this.state.dataSource.length >= 1 ? (
                 <Popconfirm title="确认删除吗?" onConfirm={() => this.handleDelete(record.key)} okText="确定" cancelText="取消">
-                  <Button type="danger" size='small'>删 除</Button>
+                  <Button type="danger" size="small">删 除</Button>
                 </Popconfirm>
-              ) : null,
-          }
+              ) : null),
+          },
         ];
-    
+
         this.state = {
           dataSource: [
             {
@@ -143,11 +136,11 @@ export default class ShopIndex extends Component {
               address: 'London, Park Lane no. 1',
             },
           ],
-          count: 2
+          count: 2,
         };
       }
 
-      //删除
+      // 删除
       handleDelete = key => {
         const dataSource = [...this.state.dataSource];
         this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
@@ -180,6 +173,7 @@ export default class ShopIndex extends Component {
         });
         this.setState({ dataSource: newData });
       };
+
     render() {
         const { dataSource } = this.state;
         const components = {
@@ -206,21 +200,21 @@ export default class ShopIndex extends Component {
         return (
             <div className={styles.ShopIndex}>
                 <div className={styles.ShopIndexBox}>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={12} md={8} lg={6} xl={4}>
                             <Input placeholder="请输入商品名称" />
                         </Col>
                         <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
-                            <Button type="primary"  style={{width: '100%'}}>查找</Button>
+                            <Button type="primary" style={{ width: '100%' }}>查找</Button>
                         </Col>
                         {/* <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
                             <Button type="primary" style={{width: '100%'}}>
-                                <Link to='/index/product/shoping/add'>添加</Link> 
+                                <Link to='/index/product/shoping/add'>添加</Link>
                             </Button>
                         </Col> */}
-                        
+
                     </Row>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                           <Table
                               components={components}
@@ -230,7 +224,7 @@ export default class ShopIndex extends Component {
                               columns={columns}
                               />
                         </Col>
-                    </Row>    
+                    </Row>
                 </div>
             </div>
         )

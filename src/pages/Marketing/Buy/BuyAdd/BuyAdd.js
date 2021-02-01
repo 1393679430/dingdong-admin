@@ -1,35 +1,31 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-04 16:07:36
- * @LastEditTime : 2020-01-04 17:54:32
- * @LastEditors  : Please set LastEditors
- * @Description: 营销控制->首页疯狂抢购->疯狂抢购列表
- * @FilePath: 
- */
+
 import React, { Component } from 'react'
+import { Row, Col, Input, Button, Table, Tag, Select } from 'antd';
 import styles from './BuyAdd.css'
 // import Link from 'umi/link';
-import { Row, Col , Input , Button , Table, Tag , Select} from 'antd';
 const { Option } = Select;
 export default class BuyAdd extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      page:{
+      page: {
         // current: 1,
         defaultCurrent: 1,
         defaultPageSize: 10,
         pageSize: 10,
-        total: 35
-      }
+        total: 35,
+      },
     }
   }
+
   handleDelete = key => {
     console.log(key)
   }
-  onChangePage = (pagination) =>{
+
+  onChangePage = pagination => {
       console.log(pagination)
   }
+
     render() {
         const columns = [
             {
@@ -74,13 +70,13 @@ export default class BuyAdd extends Component {
               render: (text, record) =>
                 (
                   <div>
-                    <Button type="primary" size='small'>添加</Button>
+                    <Button type="primary" size="small">添加</Button>
                   </div>
-                  
+
                 ),
             },
           ];
-          
+
           const data = [
             {
               key: '1',
@@ -107,7 +103,7 @@ export default class BuyAdd extends Component {
         return (
             <div className={styles.ShopIndex}>
                 <div className={styles.ShopIndexBox}>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={12} md={8} lg={6} xl={4}>
                             <Input placeholder="请输入商品名称" />
                         </Col>
@@ -143,19 +139,19 @@ export default class BuyAdd extends Component {
                             </Select>
                         </Col> */}
                         <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
-                            <Button type="primary"  style={{width: '100%'}}>查找</Button>
+                            <Button type="primary" style={{ width: '100%' }}>查找</Button>
                         </Col>
                         {/* <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
                             <Button type="primary" style={{width: '100%'}}>
-                                <Link to='/index/product/shoping/add'>添加</Link> 
+                                <Link to='/index/product/shoping/add'>添加</Link>
                             </Button>
                         </Col> */}
                     </Row>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <Table columns={columns} dataSource={data} onChange={this.onChangePage} pagination={this.state.page} />
                         </Col>
-                    </Row>    
+                    </Row>
                 </div>
             </div>
         )

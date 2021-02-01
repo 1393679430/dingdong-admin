@@ -1,5 +1,5 @@
-import Index from '..';
 import renderer from 'react-test-renderer';
+import Index from '..';
 
 
 describe('Page: index', () => {
@@ -9,6 +9,5 @@ describe('Page: index', () => {
     const outerLayer = wrapper.root.children[0];
     expect(outerLayer.type).toBe('div');
     expect(outerLayer.children.length).toBe(2);
-    
   });
 });

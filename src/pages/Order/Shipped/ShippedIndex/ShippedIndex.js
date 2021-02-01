@@ -1,17 +1,10 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-13 17:06:04
- * @LastEditTime: 2019-12-14 16:36:06
- * @LastEditors: Please set LastEditors
- * @Description: 订单管理 待发货 发货列表
- * @FilePath: 
- */
+
 import React, { Component } from 'react'
 
-import styles from './ShippedIndex.css'
 // import Link from 'umi/link';
-import { Row, Col , Input , Button , Table, Form } from 'antd';
+import { Row, Col, Input, Button, Table, Form } from 'antd';
 import Link from 'umi/link';
+import styles from './ShippedIndex.css'
 
 const EditableContext = React.createContext();
 
@@ -106,12 +99,12 @@ export default class ShippedIndex extends Component {
           {
             title: '订单编号',
             dataIndex: 'name',
-            width: '30%'
+            width: '30%',
           },
           {
             title: '用户名',
             dataIndex: 'age',
-            
+
           },
           {
             title: '备注',
@@ -121,16 +114,16 @@ export default class ShippedIndex extends Component {
             title: '操作',
             dataIndex: 'operation',
             render: (text, record) =>
-              this.state.dataSource.length >= 1 ? (
+              (this.state.dataSource.length >= 1 ? (
                 // <Popconfirm title="确认删除吗?" onConfirm={() => this.handleDelete(record.key)} okText="确定" cancelText="取消">
-                 <Link to='/index/order/shipped/deliver'>
-                    <Button type="primary" size='small'>去发货</Button>
+                 <Link to="/index/order/shipped/deliver">
+                    <Button type="primary" size="small">去发货</Button>
                 </Link>
                 // </Popconfirm>
-              ) : null,
-          }
+              ) : null),
+          },
         ];
-    
+
         this.state = {
           dataSource: [
             {
@@ -146,11 +139,11 @@ export default class ShippedIndex extends Component {
               address: '退货/退款',
             },
           ],
-          count: 2
+          count: 2,
         };
       }
 
-      //删除
+      // 删除
       handleDelete = key => {
         const dataSource = [...this.state.dataSource];
         this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
@@ -183,6 +176,7 @@ export default class ShippedIndex extends Component {
         });
         this.setState({ dataSource: newData });
       };
+
     render() {
         const { dataSource } = this.state;
         const components = {
@@ -209,21 +203,21 @@ export default class ShippedIndex extends Component {
         return (
             <div className={styles.ShopIndex}>
                 <div className={styles.ShopIndexBox}>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={12} md={8} lg={6} xl={4}>
                             <Input placeholder="请输入用户名称" />
                         </Col>
                         <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
-                            <Button type="primary"  style={{width: '100%'}}>查找</Button>
+                            <Button type="primary" style={{ width: '100%' }}>查找</Button>
                         </Col>
                         {/* <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
                             <Button type="primary" style={{width: '100%'}}>
-                                <Link to='/index/product/shoping/add'>添加</Link> 
+                                <Link to='/index/product/shoping/add'>添加</Link>
                             </Button>
                         </Col> */}
-                        
+
                     </Row>
-                    <Row style={{marginBottom: '15px'}}>
+                    <Row style={{ marginBottom: '15px' }}>
                         <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                           <Table
                               components={components}
@@ -233,7 +227,7 @@ export default class ShippedIndex extends Component {
                               columns={columns}
                               />
                         </Col>
-                    </Row>    
+                    </Row>
                 </div>
             </div>
         )

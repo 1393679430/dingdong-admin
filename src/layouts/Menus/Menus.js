@@ -1,16 +1,9 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-02 10:08:38
- * @LastEditTime : 2020-01-09 17:18:50
- * @LastEditors  : Please set LastEditors
- * @Description: 导航菜单
- * @FilePath: \umi-admin\src\layouts\Menus\Menus.js
- */
+
 import React, { Component } from 'react';
-import styles from './Menus.css';
 import Link from 'umi/link';
 import { Menu, Icon } from 'antd';
 import withRouter from 'umi/withRouter';
+import styles from './Menus.css';
 
 const { SubMenu } = Menu;
 
@@ -36,14 +29,14 @@ class Menus extends Component {
             mode="inline"
             theme="dark"
           >
-            <Menu.Item key="/index/" to='/index/'>
-              <Link to='/index/'>
+            <Menu.Item key="/index/" to="/index/">
+              <Link to="/index/">
                 <Icon type="home" />
                 <span>首页</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="/index/data/index">
-              <Link to='/index/data/index'>
+              <Link to="/index/data/index">
                 <Icon type="heat-map" />
                 <span>数据分析</span>
               </Link>
@@ -58,17 +51,17 @@ class Menus extends Component {
               }
             >
               <Menu.Item key="/index/product/shoping/index">
-                <Link to='/index/product/shoping/index'>
+                <Link to="/index/product/shoping/index">
                   商品管理
                 </Link>
               </Menu.Item>
               <Menu.Item key="/index/product/class/index">
-                <Link to='/index/product/class/index'>
+                <Link to="/index/product/class/index">
                   分类管理
                 </Link>
               </Menu.Item>
               <Menu.Item key="/index/product/comment/index">
-                <Link to='/index/product/comment/index'>
+                <Link to="/index/product/comment/index">
                   评论管理
                 </Link>
               </Menu.Item>
@@ -83,12 +76,12 @@ class Menus extends Component {
               }
             >
               <Menu.Item key="21">
-                <Link to='/index/control/carousel/index'>
+                <Link to="/index/control/carousel/index">
                   首页轮播
                 </Link>
               </Menu.Item>
               <Menu.Item key="24">
-                <Link to='/index/control/keyword/index'>
+                <Link to="/index/control/keyword/index">
                   搜索发现关键词
                 </Link>
               </Menu.Item>
@@ -103,7 +96,7 @@ class Menus extends Component {
               }
             >
               <Menu.Item key="31">
-                <Link to='/index/marketing/buy/index'>
+                <Link to="/index/marketing/buy/index">
                   首页疯狂抢购
                 </Link>
               </Menu.Item>
@@ -119,12 +112,12 @@ class Menus extends Component {
             >
               <Menu.Item key="41">订单列表</Menu.Item>
               <Menu.Item key="/index/order/shipped/index">
-                <Link to='/index/order/shipped/index'>
+                <Link to="/index/order/shipped/index">
                   待发货
                 </Link>
               </Menu.Item>
               <Menu.Item key="/index/order/refund/index">
-                <Link to='/index/order/refund/index'>
+                <Link to="/index/order/refund/index">
                   待退款
                 </Link>
               </Menu.Item>
@@ -181,12 +174,12 @@ class Menus extends Component {
               }
             >
               <Menu.Item key="/index/set/personalcenter/index">
-                <Link to='/index/set/personalcenter/index'>
+                <Link to="/index/set/personalcenter/index">
                   个人中心
                 </Link>
               </Menu.Item>
               <Menu.Item key="71">
-                <Link to='/index/set/PersonalSettings/index'>
+                <Link to="/index/set/PersonalSettings/index">
                   个人设置
                 </Link>
               </Menu.Item>

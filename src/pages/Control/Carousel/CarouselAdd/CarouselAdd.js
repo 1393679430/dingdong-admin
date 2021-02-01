@@ -8,40 +8,39 @@
  */
 
 import React, { Component } from 'react'
-import styles from './CarouselAdd.css'
 import router from 'umi/router';
 import { connect } from 'dva'
-import { Form, Icon, Input, Button, Switch , Upload, message, Select, InputNumber } from 'antd';
+import { Form, Icon, Input, Button, Switch, Upload, message, Select, InputNumber } from 'antd';
+import styles from './CarouselAdd.css'
 
 
 const { Option } = Select;
 
 
 class CarouselAdd extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            ListSrc:{
-                remark: '',  //备注
-                carousel: [],  //图片
-                types: 1,  //类型
+            ListSrc: {
+                remark: '', // 备注
+                carousel: [], // 图片
+                types: 1, // 类型
                 external: null,
                 good_id: null,
-                shows: false
+                shows: false,
             },
             types: 1,
             propsUpload: {
                 name: 'file',
-                action: this.props.UserRedux.httpsUpload, 
+                action: this.props.UserRedux.httpsUpload,
                 method: 'post',
                 headers: {
                 //   authorization: 'authorization-text',
-                  Authorization: this.props.UserRedux.token
+                  Authorization: this.props.UserRedux.token,
                 },
                 onChange(info) {
-                   
                   if (info.file.status !== 'uploading') {
-                   
+
                   }
                   if (info.file.status === 'done') {
                     message.success(`${info.file.name} 上传成功`);
@@ -49,43 +48,45 @@ class CarouselAdd extends Component {
                     message.error(`${info.file.name} 上传失败`);
                   }
                 },
-              }
+              },
         }
     }
-    componentDidMount(){
+
+    componentDidMount() {
          // 查询某一轮播图
-         let This = this
-         if(this.props.location.query.id){
-             this.$https.get('nottoken/getSwiperItem',{
-                 params:{
-                     id: this.props.location.query.id
-                 }
+         const This = this
+         if (this.props.location.query.id) {
+             this.$https.get('nottoken/getSwiperItem', {
+                 params: {
+                     id: this.props.location.query.id,
+                 },
              })
-             .then(res=>{
+             .then(res => {
                  res.data.carousel = JSON.parse(res.data.carousel)
-                 res.data.shows  = Boolean(res.data.shows)
-                 if(res.code === 0){
+                 res.data.shows = Boolean(res.data.shows)
+                 if (res.code === 0) {
                      This.setState({
-                         ListSrc: res.data
+                         ListSrc: res.data,
                      })
-                 }else{
+                 } else {
                      router.push('/index/product/class/index')
                  }
              })
          }
     }
+
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
           if (!err) {
-            this.$https.post('index/addSwiper',{
+            this.$https.post('index/addSwiper', {
                 ...values,
-                id: this.state.ListSrc ? this.state.ListSrc.id : null
+                id: this.state.ListSrc ? this.state.ListSrc.id : null,
             })
-            .then(res=>{
-                if(res.code === 0 && res.data.type === 0){
+            .then(res => {
+                if (res.code === 0 && res.data.type === 0) {
                     this.props.form.resetFields();
-                }else if(res.code === 0 && res.data.type === 1){
+                } else if (res.code === 0 && res.data.type === 1) {
                     this.props.form.resetFields();
                     router.push('/index/control/carousel/index')
                 }
@@ -96,37 +97,36 @@ class CarouselAdd extends Component {
 
     normFile = e => {
         let srcAll = []
-        if(e.file.response && e.file.response.code === 0){
-                for(let i=0; i<e.fileList.length;i++){
-                    if(e.fileList[i].response){
-                        let imgSrc = {
+        if (e.file.response && e.file.response.code === 0) {
+                for (let i = 0; i < e.fileList.length; i++) {
+                    if (e.fileList[i].response) {
+                        const imgSrc = {
                             url: e.fileList[i].response.data.url || '',
                             name: e.fileList[i].name,
                             uid: e.fileList[i].uid,
-                            status: e.fileList[i].status
+                            status: e.fileList[i].status,
                         }
-                        srcAll=[]
+                        srcAll = []
                         srcAll.push(imgSrc)
-                    }else{
-                        srcAll=[]
+                    } else {
+                        srcAll = []
                         srcAll.push(e.fileList[i])
                     }
                 }
                 return srcAll
-            
-            }else{
-                return e.fileList;
             }
+                return e.fileList;
       };
+
     //   跳转类型选择
-    selectClass = (value) => {
-            let ListSrc = this.state.ListSrc
+    selectClass = value => {
+            const { ListSrc } = this.state
             ListSrc.types = value
            this.setState({
-                ListSrc
+                ListSrc,
            })
-           
       }
+
     render() {
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
@@ -144,11 +144,11 @@ class CarouselAdd extends Component {
         return (
             <div className={styles.AddShop}>
                 <div className={styles.AddShopBox}>
-                <Form  {...formItemLayout} onSubmit={this.handleSubmit}>
+                <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                     <Form.Item label="备注名称" hasFeedback className={styles.AddShopBoxFromItem} extra="建议在2~4个字之间">
                         {getFieldDecorator('remark', {
                             initialValue: this.state.ListSrc.remark,
-                            rules: [{ required: true, message: '请输入备注名称!' },{ min:2 , max: 10 , message: '备注名称在2~10个字之间!' }],
+                            rules: [{ required: true, message: '请输入备注名称!' }, { min: 2, max: 10, message: '备注名称在2~10个字之间!' }],
                         })(
                             <Input
                             placeholder="请输入备注名称"
@@ -161,8 +161,8 @@ class CarouselAdd extends Component {
                             initialValue: this.state.ListSrc.carousel,
                             getValueFromEvent: this.normFile,
                             rules: [
-                                { required: true, message: '请上传分类展示图!' }
-                            ]
+                                { required: true, message: '请上传分类展示图!' },
+                            ],
                         })(
                             <Upload {...this.state.propsUpload} listType="picture-card">
                                 <Button>
@@ -190,10 +190,10 @@ class CarouselAdd extends Component {
                             >
                                 <Option value={1}>跳转商品</Option>
                                 <Option value={2}>跳转外部链接</Option>
-                            </Select>
+                            </Select>,
                         )}
                     </Form.Item>
-                    { this.state.ListSrc.types ===  2 ? (
+                    { this.state.ListSrc.types === 2 ? (
                             <Form.Item label="外部链接" hasFeedback className={styles.AddShopBoxFromItem} extra="请输入带HTTPS的完整连接地址">
                                 {getFieldDecorator('external', {
                                     initialValue: this.state.ListSrc.external,
@@ -208,10 +208,10 @@ class CarouselAdd extends Component {
                             <Form.Item label="商品ID" hasFeedback className={styles.AddShopBoxFromItem} extra="商品ID详见:产品管理 => 商品管理">
                                 {getFieldDecorator('good_id', {
                                     initialValue: this.state.ListSrc.good_id,
-                                    rules: [{ required: true, message: '请输入商品ID!' },{ type:"number", message: '请输入数字' }],
+                                    rules: [{ required: true, message: '请输入商品ID!' }, { type: 'number', message: '请输入数字' }],
                                 })(
-                                    <InputNumber 
-                                    style={{width: '200px'}}
+                                    <InputNumber
+                                    style={{ width: '200px' }}
                                     step= { 1 }
                                     precision = { 0 }
                                     placeholder="请输入商品ID"
@@ -221,17 +221,17 @@ class CarouselAdd extends Component {
                         )
                 }
                     <Form.Item label="立即上架">
-                        {getFieldDecorator('shows', { 
+                        {getFieldDecorator('shows', {
                             initialValue: this.state.ListSrc.shows,
                             valuePropName: 'checked',
                             rules: [
-                                { required: true, message: '请选择是否立即上架!' }
-                            ]
-                        })(<Switch checkedChildren="是" unCheckedChildren="否"  />)}
+                                { required: true, message: '请选择是否立即上架!' },
+                            ],
+                        })(<Switch checkedChildren="是" unCheckedChildren="否" />)}
                     </Form.Item>
                     {/* <Form.Item> */}
-                        <Button type="primary" htmlType="submit" style={{width: '100%'}}>
-                            {this.state.ListSrc ? '修改' : "添加"}
+                        <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
+                            {this.state.ListSrc ? '修改' : '添加'}
                         </Button>
                     {/* </Form.Item> */}
                 </Form>
@@ -244,11 +244,11 @@ class CarouselAdd extends Component {
 
 export default connect(
     state => ({
-    loading: state.loading , //dva已经可以获得 loading状态
-    UserRedux: state.UserRedux  //获取指定命名空间的模型状态
+    loading: state.loading, // dva已经可以获得 loading状态
+    UserRedux: state.UserRedux, // 获取指定命名空间的模型状态
 }),
 {
-    
-}
+
+},
 
 )(Form.create()(CarouselAdd))

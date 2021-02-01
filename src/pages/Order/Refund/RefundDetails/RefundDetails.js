@@ -1,14 +1,8 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-13 17:52:43
- * @LastEditTime: 2019-12-14 17:10:40
- * @LastEditors: Please set LastEditors
- * @Description: 订单管理 待退款 退款详情
- * @FilePath: \umi-admin\src\pages\Order\Refund\RefundDetails\RefundDetails.js
- */
+
 import React, { Component } from 'react'
+import { Row, Col, Modal, Divider, Table, Icon, Steps, Button } from 'antd';
 import styles from './RefundDetails.css'
-import { Row, Col , Modal, Divider , Table, Icon, Steps, Button } from 'antd';
+
 const { Step } = Steps;
 
 // 订单信息
@@ -16,7 +10,7 @@ const columns = [
     {
       title: '商品编号',
       dataIndex: 'name',
-      key: 'name'
+      key: 'name',
     },
     {
       title: '商品名称',
@@ -31,15 +25,15 @@ const columns = [
     {
       title: '件数',
       key: 'tags',
-      dataIndex: 'tags'
+      dataIndex: 'tags',
     },
     {
       title: '金额',
       key: 'picks',
-      dataIndex: 'picks'
+      dataIndex: 'picks',
     },
   ];
-  
+
   const data = [
     {
       key: '1',
@@ -47,7 +41,7 @@ const columns = [
       age: 12,
       address: '1.99',
       tags: 1,
-      picks: 0.99
+      picks: 0.99,
     },
     {
         key: '2',
@@ -55,7 +49,7 @@ const columns = [
         age: 32,
         address: '5.99',
         tags: 2,
-        picks: 0.99
+        picks: 0.99,
     },
     {
         key: '3',
@@ -63,16 +57,16 @@ const columns = [
         age: 2,
         address: '2.99',
         tags: 1,
-        picks: 1.99
+        picks: 1.99,
     },
   ];
 
-  //进度信息
+  // 进度信息
   const speeds = [
     {
       title: '时间',
       dataIndex: 'name',
-      key: 'name'
+      key: 'name',
     },
     {
       title: '当前进度',
@@ -83,85 +77,86 @@ const columns = [
       title: '状态',
       dataIndex: 'address',
       key: 'address',
-      render: () => {
-          return (
+      render: () => (
               <div>
-                  <Icon type="check-circle" style={{color: '#2BB2F8', marginRight: '5px'}} theme="filled" />
+                  <Icon type="check-circle" style={{ color: '#2BB2F8', marginRight: '5px' }} theme="filled" />
                   <span>成功</span>
               </div>
-          )
-      }
+          ),
     },
     {
       title: '操作员ID',
       key: 'tags',
-      dataIndex: 'tags'
+      dataIndex: 'tags',
     },
     {
         title: '备注',
         key: 'tags',
-        dataIndex: 'tags'
-      }
+        dataIndex: 'tags',
+      },
   ];
-  
+
   const speedsData = [
     {
       key: '1',
       name: '2019-12-12 14:26:52',
       age: '发起申请',
       address: '1.99',
-      tags: 1
+      tags: 1,
     },
     {
         key: '2',
         name: '2019-12-12 16:26:52',
         age: '初步同意',
         address: '5.99',
-        tags: 2
+        tags: 2,
     },
     {
         key: '3',
         name: '2019-12-13 14:26:52',
         age: '确认收单',
         address: '2.99',
-        tags: 1
+        tags: 1,
     },
     {
         key: '4',
         name: '2019-12-13 14:26:52',
         age: '财务出单',
         address: '2.99',
-        tags: 1
+        tags: 1,
     },
     {
         key: '5',
         name: '2019-12-13 14:26:52',
         age: '完成',
         address: '2.99',
-        tags: 1
-    }
+        tags: 1,
+    },
   ];
 
 export default class RefundDetails extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state ={
-            visible: false , //图片预览弹出层是否显示
-            cancelSrc: ''
+        this.state = {
+            visible: false, // 图片预览弹出层是否显示
+            cancelSrc: '',
         }
     }
-    handleCancel = () =>{
+
+    handleCancel = () => {
         this.setState({
-            visible: false
+            visible: false,
         })
     }
-    showCancel = (src) => {
+
+    showCancel = src => {
         console.log(src)
         this.setState({
             visible: true,
-            cancelSrc: src
+            cancelSrc: src,
         })
     }
+
     render() {
         return (
             <div className={styles.RefundDetails}>
@@ -171,14 +166,14 @@ export default class RefundDetails extends Component {
                         流程进度
                     </div>
                     <Steps size="small" current={0}>
-                        <Step title="发起申请"  subTitle="00:00:08" description="操作员: 12545" />
-                        <Step title="初步同意"  subTitle="00:00:08" description="操作员: 12545" />
-                        <Step title="确认收单"  subTitle="00:00:08" description="操作员: 12545" />
-                        <Step title="财务审核"  subTitle="00:00:08" description="操作员: 12545"/>
+                        <Step title="发起申请" subTitle="00:00:08" description="操作员: 12545" />
+                        <Step title="初步同意" subTitle="00:00:08" description="操作员: 12545" />
+                        <Step title="确认收单" subTitle="00:00:08" description="操作员: 12545" />
+                        <Step title="财务审核" subTitle="00:00:08" description="操作员: 12545"/>
                         <Step title="完成"/>
                     </Steps>
                     <div className={styles.RefundDetailsTechnologicalStep}>
-                        <Button type="primary" style={{marginRight: '10px'}}>确认,并前往下一步</Button>
+                        <Button type="primary" style={{ marginRight: '10px' }}>确认,并前往下一步</Button>
                         <Button type="danger">拒绝</Button>
                     </div>
                 </div>
@@ -216,7 +211,7 @@ export default class RefundDetails extends Component {
                                 <div className={styles.RefundDetailsBoxDetailsMsgName}>退款理由</div>
                                 <div className={styles.RefundDetailsBoxDetailsMsgText}>退款理由</div>
                                 <div className={styles.RefundDetailsBoxDetailsMsgImg}>
-                                    <img alt='' onClick={()=>{this.showCancel('http://qmcsdcr.oss-cn-beijing.aliyuncs.com/2019121309bd04982e124914a9e644e475467eeb.jpg')}} src='http://qmcsdcr.oss-cn-beijing.aliyuncs.com/2019121309bd04982e124914a9e644e475467eeb.jpg' />
+                                    <img alt="" onClick={() => { this.showCancel('http://qmcsdcr.oss-cn-beijing.aliyuncs.com/2019121309bd04982e124914a9e644e475467eeb.jpg') }} src="http://qmcsdcr.oss-cn-beijing.aliyuncs.com/2019121309bd04982e124914a9e644e475467eeb.jpg" />
                                 </div>
                             </div>
                         </Col>
@@ -285,9 +280,9 @@ export default class RefundDetails extends Component {
                     visible={this.state.visible}
                     onCancel={this.handleCancel}
                     footer={null}
-                    width='70%'
+                    width="70%"
                     >
-                    <img   min-width='100%' alt='' src={this.state.cancelSrc} />
+                    <img min-width="100%" alt="" src={this.state.cancelSrc} />
                 </Modal>
             </div>
         )

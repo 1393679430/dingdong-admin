@@ -1,48 +1,41 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-04 16:53:51
- * @LastEditTime : 2020-01-08 14:45:40
- * @LastEditors  : Please set LastEditors
- * @Description: 添加商品
- * @FilePath: \umi-admin\src\pages\Product\Shoping\AddShop\AddShop.js
- */
+
 import React, { Component } from 'react'
 import { connect } from 'dva'
 import router from 'umi/router';
+import { Form, Icon, Input, Button, Switch, InputNumber, Select, Upload, message } from 'antd';
 import styles from './AddShop.css'
-import { Form, Icon, Input, Button, Switch ,InputNumber ,Select , Upload, message} from 'antd';
+
 const { Option } = Select;
 
 
 class AddShop extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            srcList:{
+            srcList: {
                 name: '',
-                bewrite: "",
+                bewrite: '',
                 price: null,
                 sort_id: null,
-                carousel:[],
+                carousel: [],
                 propaganda: [],
                 shows: false,
-                weight: "",
+                weight: '',
                 conditions: '',
-                shelf_life: ""
+                shelf_life: '',
             },
-            sortList:[],
+            sortList: [],
             propsUpload: {
                 name: 'file',
-                action: this.props.UserRedux.httpsUpload, 
+                action: this.props.UserRedux.httpsUpload,
                 method: 'post',
                 headers: {
                 //   authorization: 'authorization-text',
-                  Authorization: this.props.UserRedux.token
+                  Authorization: this.props.UserRedux.token,
                 },
                 onChange(info) {
-                   
                   if (info.file.status !== 'uploading') {
-                   
+
                   }
                   if (info.file.status === 'done') {
                     message.success(`${info.file.name} 上传成功`);
@@ -50,22 +43,23 @@ class AddShop extends Component {
                     message.error(`${info.file.name} 上传失败`);
                   }
                 },
-            }
+            },
         }
     }
+
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
-            this.$https.post('index/addGoods',{
+            this.$https.post('index/addGoods', {
                 ...values,
-                id: this.state.srcList.id ? this.state.srcList.id : null
+                id: this.state.srcList.id ? this.state.srcList.id : null,
             })
-            .then(res=>{
-                if(res.code === 0 && res.data.type === 0){
+            .then(res => {
+                if (res.code === 0 && res.data.type === 0) {
                     this.props.form.resetFields();
-                }else if(res.code === 0 && res.data.type === 1){
+                } else if (res.code === 0 && res.data.type === 1) {
                     this.props.form.resetFields();
                     router.push('/index/product/shoping/index')
                 }
@@ -73,68 +67,68 @@ class AddShop extends Component {
           }
         });
       };
-    
+
     normFile = e => {
-        let srcAll = []
-        if(e.file.response && e.file.response.code === 0){
-                for(let i=0; i<e.fileList.length;i++){
-                    if(e.fileList[i].response){
-                        let imgSrc = {
+        const srcAll = []
+        if (e.file.response && e.file.response.code === 0) {
+                for (let i = 0; i < e.fileList.length; i++) {
+                    if (e.fileList[i].response) {
+                        const imgSrc = {
                             url: e.fileList[i].response.data.url || '',
                             name: e.fileList[i].name,
                             uid: e.fileList[i].uid,
-                            status: e.fileList[i].status
+                            status: e.fileList[i].status,
                         }
                         srcAll.push(imgSrc)
-                    }else{
+                    } else {
                         srcAll.push(e.fileList[i])
                     }
                 }
                 return srcAll
-            
-            }else{
-                return e.fileList;
             }
+                return e.fileList;
       };
-    componentDidMount(){
+
+    componentDidMount() {
         // 查询某一分类
-        let This = this
-        if(this.props.location.query.id){
-            this.$https.get('nottoken/getGoodItem',{
-                params:{
-                    id: this.props.location.query.id
-                }
+        const This = this
+        if (this.props.location.query.id) {
+            this.$https.get('nottoken/getGoodItem', {
+                params: {
+                    id: this.props.location.query.id,
+                },
             })
-            .then(res=>{
+            .then(res => {
                 console.log(res)
                 // res.data.carousel = JSON.parse(res.data.carousel)
                 // res.data.propaganda  = Boolean(res.data.propaganda)
-                let srcList = res.data.srcList
+                const { srcList } = res.data
                     srcList.propaganda = JSON.parse(srcList.propaganda)
                     srcList.carousel = JSON.parse(srcList.carousel)
-                    srcList.shows =  Boolean(srcList.carousel.shows)
+                    srcList.shows = Boolean(srcList.carousel.shows)
                     console.log(srcList)
-                if(res.code === 0){
+                if (res.code === 0) {
                     This.setState({
                         sortList: res.data.sortList,
-                        srcList: srcList
+                        srcList,
                     })
-                }else{
+                } else {
                     router.push('/index/product/shoping/index')
                 }
             })
-        }else{
+        } else {
             this.$https.get('nottoken/getSortList')
-                .then(res=>{
+                .then(res => {
                     console.log(res)
-                    if(res.code === 0){
+                    if (res.code === 0) {
                         this.setState({
-                            sortList: res.data
+                            sortList: res.data,
                         })
                     }
                 })
         }
     }
+
     render() {
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
@@ -152,7 +146,7 @@ class AddShop extends Component {
         return (
             <div className={styles.AddShop}>
                 <div className={styles.AddShopBox}>
-                <Form  {...formItemLayout} onSubmit={this.handleSubmit} colon={true} layout='horizontal'>
+                <Form {...formItemLayout} onSubmit={this.handleSubmit} colon layout="horizontal">
                     <Form.Item label="商品名称" hasFeedback className={styles.AddShopBoxFromItem} extra="建议在30个字以内">
                         {getFieldDecorator('name', {
                             initialValue: this.state.srcList.name,
@@ -169,18 +163,18 @@ class AddShop extends Component {
                             rules: [{ required: true, message: '请输入商品描述' }],
                         })(
                             <Input
-                            style={{width: '100%'}}
+                            style={{ width: '100%' }}
                             placeholder="请输入商品描述"
                             />,
                         )}
                     </Form.Item>
-                    <Form.Item label="商品当前价"  className={styles.AddShopBoxFromItem}>
+                    <Form.Item label="商品当前价" className={styles.AddShopBoxFromItem}>
                         {getFieldDecorator('price', {
                             initialValue: this.state.srcList.price,
                             rules: [{ required: true, message: '请输入商品当前价!' }],
                         })(
-                
-                            <InputNumber min={0.01} max={10000} step={0.1} placeholder='当前价' precision={2}  />,
+
+                            <InputNumber min={0.01} max={10000} step={0.1} placeholder="当前价" precision={2} />,
                         )}
                     </Form.Item>
                     <Form.Item label="所属分类" className={styles.AddShopBoxFromItem}>
@@ -202,8 +196,8 @@ class AddShop extends Component {
                                 {/* <Option value={1}>Jack</Option>
                                 <Option value={2}>Lucy</Option>
                                 <Option value={3}>Tom</Option> */}
-                                {this.state.sortList.map((item,index)=><Option key={index} value={item.id}>{item.name}</Option>)}
-                            </Select>
+                                {this.state.sortList.map((item, index) => <Option key={index} value={item.id}>{item.name}</Option>)}
+                            </Select>,
                         )}
                     </Form.Item>
                     <Form.Item label="产品轮播图" extra="产品顶部轮播图,首张将作为缩略图展示在产品最外层(建议410*290比例)">
@@ -212,10 +206,10 @@ class AddShop extends Component {
                             getValueFromEvent: this.normFile,
                             initialValue: this.state.srcList.carousel,
                             rules: [
-                                { required: true, message: '请上传商品轮播图!' }
-                            ]
+                                { required: true, message: '请上传商品轮播图!' },
+                            ],
                         })(
-                            <Upload {...this.state.propsUpload}   listType="picture-card">
+                            <Upload {...this.state.propsUpload} listType="picture-card">
                                 <Button>
                                     <Icon type="upload" /> 上传轮播图
                                 </Button>
@@ -228,10 +222,10 @@ class AddShop extends Component {
                             initialValue: this.state.srcList.propaganda,
                             getValueFromEvent: this.normFile,
                             rules: [
-                                { required: true, message: '请上传商品宣传画!' }
-                            ]
+                                { required: true, message: '请上传商品宣传画!' },
+                            ],
                         })(
-                            <Upload {...this.state.propsUpload}   listType="picture-card">
+                            <Upload {...this.state.propsUpload} listType="picture-card">
                                 <Button>
                                     <Icon type="upload" /> 上传宣传图
                                 </Button>
@@ -239,13 +233,13 @@ class AddShop extends Component {
                         )}
                     </Form.Item>
                     <Form.Item label="立即上架">
-                        {getFieldDecorator('shows', { 
+                        {getFieldDecorator('shows', {
                             initialValue: this.state.srcList.shows,
                             valuePropName: 'checked',
                             rules: [
-                                { required: true, message: '请选择是否立即上架!' }
-                            ]
-                        })(<Switch checkedChildren="是" unCheckedChildren="否"  />)}
+                                { required: true, message: '请选择是否立即上架!' },
+                            ],
+                        })(<Switch checkedChildren="是" unCheckedChildren="否" />)}
                     </Form.Item>
                     <Form.Item label="净含量" hasFeedback className={styles.AddShopBoxFromItem}>
                         {getFieldDecorator('weight', {
@@ -253,7 +247,7 @@ class AddShop extends Component {
                             rules: [{ required: true, message: '请输入商品净含量' }],
                         })(
                             <Input
-                            style={{width: '100%'}}
+                            style={{ width: '100%' }}
                             placeholder="请输入商品净含量"
                             />,
                         )}
@@ -264,7 +258,7 @@ class AddShop extends Component {
                             rules: [{ required: true, message: '请输入商品保存条件' }],
                         })(
                             <Input
-                            style={{width: '100%'}}
+                            style={{ width: '100%' }}
                             placeholder="请输入商品保存条件"
                             />,
                         )}
@@ -275,13 +269,13 @@ class AddShop extends Component {
                                 rules: [{ required: true, message: '请输入商品保质期' }],
                             })(
                                 <Input
-                                style={{width: '100%'}}
+                                style={{ width: '100%' }}
                                 placeholder="请输入商品保质期"
-                                />
-                            )}  
+                                />,
+                            )}
                     </Form.Item>
                     {/* <Form.Item> */}
-                        <Button type="primary" htmlType="submit" style={{width: '100%'}}>
+                        <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
                             {this.state.srcList.id ? '修改' : '添加'}
                         </Button>
                     {/* </Form.Item> */}
@@ -295,11 +289,11 @@ class AddShop extends Component {
 
 export default connect(
     state => ({
-    loading: state.loading , //dva已经可以获得 loading状态
-    UserRedux: state.UserRedux  //获取指定命名空间的模型状态
+    loading: state.loading, // dva已经可以获得 loading状态
+    UserRedux: state.UserRedux, // 获取指定命名空间的模型状态
 }),
 {
-    
-}
+
+},
 
 )(Form.create()(AddShop))

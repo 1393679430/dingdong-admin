@@ -1,79 +1,71 @@
-/*
- * @Author: 崔国强
- * @Date: 2019-12-03 17:12:51
- * @LastEditTime: 2019-12-04 11:04:58
- * @LastEditors: Please set LastEditors
- * @Description: 总访问量和总销售额
- * @FilePath: \umi-admin\src\pages\Datas\DataIndex\Visit\Visit.js
- */
-import React, { Component } from 'react'
-import styles from './Visit.css'
-// import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
 
+import React, { Component } from 'react'
 import {
     Chart,
     Geom,
     Axis,
-    Tooltip
-  } from "bizcharts";
-  
+    Tooltip,
+  } from 'bizcharts';
+import styles from './Visit.css'
+// import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
+
 
 export default class Visit extends Component {
     render() {
         const data = [
             {
-              year: "1 月",
-              sales: 38
+              year: '1 月',
+              sales: 38,
             },
             {
-              year: "2 月",
-              sales: 52
+              year: '2 月',
+              sales: 52,
             },
             {
-              year: "3 月",
-              sales: 61
+              year: '3 月',
+              sales: 61,
             },
             {
-              year: "4 月",
-              sales: 145
+              year: '4 月',
+              sales: 145,
             },
             {
-              year: "5 月",
-              sales: 48
+              year: '5 月',
+              sales: 48,
             },
             {
-              year: "6 月",
-              sales: 38
+              year: '6 月',
+              sales: 38,
             },
             {
-              year: "7 月",
-              sales: 38
+              year: '7 月',
+              sales: 38,
             },
             {
-              year: "8 月",
-              sales: 38
+              year: '8 月',
+              sales: 38,
             },
             {
-              year: "9 月",
-              sales: 38
+              year: '9 月',
+              sales: 38,
             },
             {
-              year: "10 月",
-              sales: 38
+              year: '10 月',
+              sales: 38,
             },
             {
-              year: "11 月",
-              sales: 38
+              year: '11 月',
+              sales: 38,
             },
             {
-              year: "12 月",
-              sales: 38
-            }
+              year: '12 月',
+              sales: 38,
+            },
           ];
           const cols = {
             sales: {
-              tickInterval: 30
-            }
+              tickInterval: 30,
+            },
           };
       return (
           <div className={styles.Visit}>
@@ -85,7 +77,7 @@ export default class Visit extends Component {
                         <Axis name="sales" />
                         <Tooltip
                             crosshairs={{
-                            type: "y"
+                            type: 'y',
                             }}
                         />
                         <Geom type="interval" position="year*sales" />

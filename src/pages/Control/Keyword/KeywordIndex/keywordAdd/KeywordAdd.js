@@ -8,34 +8,34 @@
  */
 import React, { Component } from 'react'
 
+import { Form, Icon, Input, Button } from 'antd';
 import styles from './KeywordAdd.css'
 
-import { Form, Icon, Input, Button } from 'antd';
 
 class KeywordAdd extends Component {
-    constructor(props){
+    constructor(props) {
       super(props);
-      this.state={
-          ListSrc:{
-            name:'',
-            remark: ""
-          }
+      this.state = {
+          ListSrc: {
+            name: '',
+            remark: '',
+          },
       }
     }
+
     handleSubmit = e => {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
         if (!err) {
-              this.$https.post('index/addKeyword',{
+              this.$https.post('index/addKeyword', {
                 ...values,
-                id: this.state.ListSrc ? this.state.ListSrc.id : null
+                id: this.state.ListSrc ? this.state.ListSrc.id : null,
                 })
-                .then(res=>{
-                    if(res.code === 0 && res.data.type === 0){
-                        
+                .then(res => {
+                    if (res.code === 0 && res.data.type === 0) {
                         this.props.form.resetFields();
                         this.props.handleCancel()
-                    }else if(res.code === 0 && res.data.type === 1){
+                    } else if (res.code === 0 && res.data.type === 1) {
                         this.props.form.resetFields();
                         this.props.handleCancel()
                     }
@@ -43,7 +43,7 @@ class KeywordAdd extends Component {
         }
       });
     };
-  
+
     render() {
       const { getFieldDecorator } = this.props.form;
       return (
@@ -51,7 +51,7 @@ class KeywordAdd extends Component {
           <Form.Item>
             {getFieldDecorator('name', {
                initialValue: this.state.ListSrc.name,
-              rules: [{ required: true, message: '请输入关键词' },{min: 1, max: 6, message: '请输入1~6个字符的关键词'}],
+              rules: [{ required: true, message: '请输入关键词' }, { min: 1, max: 6, message: '请输入1~6个字符的关键词' }],
             })(
               <Input
                 prefix={<Icon type="file-word" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -70,8 +70,8 @@ class KeywordAdd extends Component {
               />,
             )}
           </Form.Item>
-          <Form.Item style={{display: 'flex', justifyContent: 'flex-end'}}>
-            <Button  className="login-form-button" style={{marginRight: '10px'}} onClick={this.props.handleCancel}>
+          <Form.Item style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Button className="login-form-button" style={{ marginRight: '10px' }} onClick={this.props.handleCancel}>
               取消
             </Button>
             <Button type="primary" htmlType="submit" className="login-form-button">
