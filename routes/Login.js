@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
 
-
 function Login(props) {
   // if(!props.UserRedux.token){
   //     return <Redirect to= '/login'></Redirect>

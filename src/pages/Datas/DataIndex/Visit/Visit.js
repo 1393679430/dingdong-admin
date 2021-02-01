@@ -7,7 +7,6 @@ import {
   } from 'bizcharts';
 import styles from './Visit.css'
 
-
 export default class Visit extends Component {
     render() {
         const data = [

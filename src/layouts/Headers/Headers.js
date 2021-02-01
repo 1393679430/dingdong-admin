@@ -6,7 +6,6 @@ import { connect } from 'dva';
 import MenuLists from '../../assets/js/menus';
 import styles from './Headers.css';
 
-
 const menu = (
   <Menu>
     <Menu.Item>

@@ -1,9 +1,6 @@
-
 import React, { Component } from 'react';
-
 import withRouter from 'umi/withRouter';
 import styles from './Titles.css';
-
 import MenuLists from '../../assets/js/menus';
 
 class Titles extends Component {

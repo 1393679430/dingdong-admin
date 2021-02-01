@@ -61,12 +61,10 @@ instance.interceptors.response.use(response => {
   }
 
   UserRedux.state.isLogin = false;
-  console.log(response, 111)
   return response.data;
 }, error => {
   message.error({ content: '网络错误,请稍后重试', key, duration: 3 });
   UserRedux.state.isLogin = false;
-  console.log(error, 2222)
   return Promise.reject(error);
 });
 

@@ -4,13 +4,11 @@ import styles from './BasicSetup.css';
 
 const { TextArea } = Input;
 
-
 class BasicSetup extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
       }
     });
   };

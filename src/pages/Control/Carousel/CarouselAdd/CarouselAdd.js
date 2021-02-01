@@ -6,7 +6,6 @@ import styles from './CarouselAdd.css';
 
 const { Option } = Select;
 
-
 class CarouselAdd extends Component {
   constructor(props) {
     super(props);

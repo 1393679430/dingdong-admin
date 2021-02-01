@@ -3,7 +3,6 @@ import { connect } from 'dva';
 import { Row, Col, Icon } from 'antd';
 import styles from './PersonalCenter.css';
 
-
 class PersonalCenter extends Component {
   constructor(props) {
     super(props);

@@ -6,7 +6,6 @@ import styles from './AddShop.css';
 
 const { Option } = Select;
 
-
 class AddShop extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +49,6 @@ class AddShop extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         this.$https.post('index/addGoods', {
           ...values,
           id: this.state.srcList.id ? this.state.srcList.id : null,
@@ -101,7 +99,6 @@ class AddShop extends Component {
           srcList.propaganda = JSON.parse(srcList.propaganda);
           srcList.carousel = JSON.parse(srcList.carousel);
           srcList.shows = Boolean(srcList.carousel.shows);
-          console.log(srcList);
           if (res.code === 0) {
             This.setState({
               sortList: res.data.sortList,
@@ -114,7 +111,6 @@ class AddShop extends Component {
     } else {
       this.$https.get('nottoken/getSortList')
         .then(res => {
-          console.log(res);
           if (res.code === 0) {
             this.setState({
               sortList: res.data,

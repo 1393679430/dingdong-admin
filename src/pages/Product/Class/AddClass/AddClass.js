@@ -43,7 +43,6 @@ class AddClass extends Component {
           ...values,
           id: this.state.ListSrc ? this.state.ListSrc.id : null,
         }).then(res => {
-          console.log(res);
           if (res.code === 0 && res.data.type === 0) {
             this.props.form.resetFields();
           } else if (res.code === 0 && res.data.type === 1) {

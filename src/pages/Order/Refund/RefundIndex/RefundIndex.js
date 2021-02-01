@@ -170,7 +170,6 @@ export default class RefundIndex extends Component {
 
   // 修改
   handleSave = row => {
-    console.log(row);
     const newData = [...this.state.dataSource];
     const index = newData.findIndex(item => row.key === item.key);
     const item = newData[index];

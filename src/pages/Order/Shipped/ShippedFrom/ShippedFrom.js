@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Select } from 'antd';
 import styles from './ShippedFrom.css';
 
-
 const { Option } = Select;
 
 class ShippedFrom extends Component {

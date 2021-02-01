@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import router from 'umi/router';
 import styles from './Userlogin.css';
@@ -17,7 +16,6 @@ class Userlogin extends Component {
           .then(res => {
             if (res.code === 0) {
               This.props.setToken(res.data.token);
-              console.log(values.remember);
               if (values.remember) {
                 localStorage.setItem('token', res.data.token);
               } else {

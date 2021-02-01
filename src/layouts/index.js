@@ -1,15 +1,12 @@
-
 import React, { Component } from 'react';
 import './font.css';
 import { Layout } from 'antd';
 import styles from './index.css';
 import Titles from './Titles/Titles';
 import Menus from './Menus/Menus';
-// import Footers from './Footers/Footers'
 import Headers from './Headers/Headers';
 
 const { Header, Sider, Content } = Layout;
-
 
 export default class BasicLayout extends Component {
 

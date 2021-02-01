@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Icon, Tabs } from 'antd';
 import styles from './Login.css';

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import { Row, Col, Table, Steps } from 'antd';
 import styles from './ShippedDeliver.css';
-
 import ShippedFrom from '../ShippedFrom/ShippedFrom'; // 填写发货表单
 import ShippedSubmit from '../ShippedSubmit/ShippedSubmit'; // 确认提交发货表单
 import ShippedComplete from '../ShippedComplete/ShippedComplete';
