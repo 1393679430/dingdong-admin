@@ -17,16 +17,15 @@
   background: #FFFFFF;
   margin: 0;
   padding: 0;
- 
 }
 .Contents{
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;
   overflow: '-moz-scrollbars-none';
-  scrollbar-width: none;   
+  scrollbar-width: none;
 }
 .Contents::-webkit-scrollbar {
   display: none;  /*  Chrome  */

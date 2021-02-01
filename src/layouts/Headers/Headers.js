@@ -19,15 +19,6 @@ const menu = (
         个人设置
       </Link>
     </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item>
-      <a target="_blank"
-         rel="noopener noreferrer"
-         href="http://www.tmall.com/">
-        &nbsp;&nbsp;关&nbsp;&nbsp;&nbsp;&nbsp;于&nbsp;&nbsp;
-      </a>
-    </Menu.Item>
-    <Menu.Divider />
     <Menu.Item>
       <Link to="/login">
         退出登录
