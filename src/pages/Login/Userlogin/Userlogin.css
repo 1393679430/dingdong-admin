@@ -1,0 +1,17 @@
+.loginForm {
+    max-width: 100%;
+  }
+.loginFormForgot {
+    float: right;
+    color: #1890FF;
+  }
+.loginFormButton {
+    width: 100%;
+  }
+
+.cant{
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+  }

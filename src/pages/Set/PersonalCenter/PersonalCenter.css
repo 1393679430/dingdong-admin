@@ -1,0 +1,86 @@
+.PersonalCenter{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* 左侧个人信息展示 */
+.PersonalCenterBox{
+    /* width: 100%; */
+    height: auto;
+    padding: 15px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+.PersonalCenterBoxName{
+    width: 100%;
+    height: 200px;
+}
+.PersonalCenterBoxNameImgs{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.PersonalCenterBoxNameImgs img{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+.PersonalCenterBoxNameName{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #262626;
+}
+.PersonalCenterBoxNameDescribe{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+    color: #595959;
+    padding: 0 25px;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.PersonalCenterBoxIdentity{
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px dashed #E8E8E8;
+}
+.PersonalCenterBoxIdentityList{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #595959;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* 快捷方式 */
+.PersonalCenterBoxShortcut{
+    width: 100%;
+    height: auto;
+}
+.PersonalCenterBoxShortcutName{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+}
+.PersonalCenterBoxShortcutNameList{
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}

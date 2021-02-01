@@ -1,0 +1,18 @@
+.AddShop{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.AddShopBox{
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.AddShopBoxFromItem{
+    display: flex;
+    width: 100%;
+}
+

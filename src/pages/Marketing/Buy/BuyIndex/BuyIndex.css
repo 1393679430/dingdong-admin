@@ -1,0 +1,13 @@
+.ShopIndex{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.ShopIndexBox{
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    padding: 15px;
+    box-sizing: border-box;
+}

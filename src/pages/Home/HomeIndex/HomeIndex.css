@@ -1,0 +1,297 @@
+.HomeIndex{
+    width: 100%;
+}
+/* 个人信息 */
+.HomeIndexName{
+    width: 100%;
+    height: 140px;
+    background: #ffffff;
+
+}
+.HomeIndexTitles{
+    width: 100%;
+    height: 50px;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    line-height: 50px;
+    font-weight: 600;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    letter-spacing:3px
+}
+.HomeIndexNameContent{
+    width: 100%;
+    height: 80px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.HomeIndexNameContentLeft{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+.HomeIndexNameContentLeftImg{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.HomeIndexNameContentLeftImg img{
+    width: 60px;
+    height: 60px;
+}
+.HomeIndexNameContentLeftName{
+    margin-left: 15px;
+    width: auto;
+    height: 60px;
+}
+.HomeIndexNameContentLeftNameTop{
+    width: auto;
+    height: 35px;
+    line-height: 35px;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing:2px;
+    color: #666666;
+}
+.HomeIndexNameContentLeftNameBottom{
+    width: auto;
+    height: 25px;
+    line-height: 25px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing:2px;
+    color: #8C8C8C;
+}
+.HomeIndexNameContentRight{
+    width: auto;
+    height: 60px;
+    display: flex;
+}
+.HomeIndexNameContentRightList{
+    width: auto;
+    height: 60px;
+    padding: 0 20px;
+    border-right: 1px solid #E8E8E8;
+    user-select: none;
+}
+.HomeIndexNameContentRightList:last-child{
+    border-right: none;
+}
+.HomeIndexNameContentRightList p:nth-child(1){
+    width: auto;
+    height: 20px;
+    overflow: hidden;
+    font-size: 12px;
+    letter-spacing:2px;
+    text-align: center;
+    color: #8C8C8C;
+    line-height: 20px;
+}
+.HomeIndexNameContentRightList p:nth-child(2){
+    width: auto;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    letter-spacing:2px;
+    text-align: center;
+    color: #262626;
+    line-height: 40px;
+    font-weight: 500;
+}
+/* 快捷操作 */
+.HomeIndexQuick{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.HomeIndexQuickBox{
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-right: 2px;
+}
+.HomeIndexQuickBoxTitle{
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #E8E8E8;
+    box-sizing: border-box;
+    padding-left: 15px;
+    box-sizing: border-box;
+    line-height: 45px;
+    color: #262626;
+    /* font-weight: 600; */
+    font-size: 16px;
+}
+.HomeIndexQuickBoxContentList{
+    width: 100%;
+    height: 140px;
+    background: #ffffff;
+    border-right: 1px solid #F0F2F5;
+    border-bottom: 1px solid #F0F2F5;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1;
+    user-select: none;
+}
+.HomeIndexQuickBoxContentList:hover{
+    transform: translate(-5px,-5px);
+    background: #3EB5F8;
+    z-index: 10;
+    color: #ffffff;
+}
+.HomeIndexQuickBoxContentList:hover div{
+    color: #ffffff;
+}
+.HomeIndexQuickBoxContentListTop{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px 15px 0 15px;
+    box-sizing: border-box;
+}
+/* .HomeIndexQuickBoxContentListTopImg{
+    width: 30px;
+    height: 30px;
+} */
+.HomeIndexQuickBoxContentListTop img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.HomeIndexQuickBoxContentListTop span{
+    width: auto;
+    height: 30px;
+    display: block;
+    line-height: 30px;
+    margin-left: 10px;
+}
+.HomeIndexQuickBoxContentListBottom{
+    width: 100%;
+    height: 60px;
+    line-height: 30px;
+    color: #999999;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding: 0px 15px;
+    box-sizing: border-box;
+}
+.HomeIndexQuickBoxContentListTime{
+    width: 100%;
+    height: 35px;
+    text-align: right;
+    line-height: 20px;
+    color: #D0CFCF;
+    font-size: 12px;
+    padding: 0 15px 15px;
+    box-sizing: border-box;
+}
+/* 动态 */
+.HomeIndexDynamic{
+    width: 100%;
+    background: #ffffff;
+}
+.HomeIndexDynamicTitle{
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #E8E8E8;
+    box-sizing: border-box;
+    padding: 0 15px;
+    line-height: 45px;
+    color: #262626;
+}
+.HomeIndexDynamicCentent{
+    width: 100%;
+    max-height: 560px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.HomeIndexDynamicCententSwipe{
+    width: 100%;
+    max-height: 560px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    overflow: '-moz-scrollbars-none';
+    scrollbar-width: none;  /*  火狐   */
+    /* animation: Swipe 3s both linear infinite;    */
+    
+    
+}
+.HomeIndexDynamicCententSwipe:hover{
+    animation-play-state:paused;
+}
+.HomeIndexDynamicCententSwipe::-webkit-scrollbar {
+    display: none;  /*  Chrome  */
+    width: 0 !important ; /*  Chrome  */
+}
+@keyframes Swipe {
+    0% {
+        transform: translateY(80px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+  }
+
+.HomeIndexDynamicCententList{
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #E8E8E8;
+    padding: 10px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.HomeIndexDynamicCententList:hover{
+    transform: translateX(5px);
+}
+.HomeIndexDynamicCententList:last-child{
+    border: none;
+}
+
+.HomeIndexDynamicCententListLeft{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.HomeIndexDynamicCententListLeft img{
+    width: 30px;
+    height: 30px;
+}
+.HomeIndexDynamicCententListRight{
+    width: auto;
+    flex: 1;
+    margin-left: 15px;
+}
+.HomeIndexDynamicCententListRight p:nth-child(1){
+    width: 100%;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    color: #666666;
+}
+.HomeIndexDynamicCententListRight p:nth-child(2){
+    width: 100%;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    line-height: 25px;
+    color: #BFBFBF;
+}
+/* .HomeIndexDynamicCententListRightPs span:nth-child(1){
+    color: #34BF5A;
+} */

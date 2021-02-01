@@ -1,0 +1,21 @@
+.Hots{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+}
+.HotsName{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #BBBBBB;
+    font-size: 12px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.HotsText{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #262626;
+    font-size: 22px;
+}

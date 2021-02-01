@@ -1,0 +1,11 @@
+.footers{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #666666;
+}
+.gethub{
+    margin-left: 10px;
+    color: #666666;
+}

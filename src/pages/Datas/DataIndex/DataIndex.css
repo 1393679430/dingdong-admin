@@ -1,0 +1,105 @@
+.DataIndex{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* 模块化数据分析 */
+.DataIndexModule{
+    letter-spacing:2px
+}
+.DataIndexModuleList{
+    width: 100%;
+    height: 185px;
+    background: #ffffff;
+    padding: 15px 15px 0 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.DataIndexModuleListName{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    color: #8C8C8C;
+}
+.DataIndexModuleListNumber{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 26px;
+    color: #262626;
+}
+/* 95 */
+.DataIndexModuleListChart{
+    width: 100%;
+    height: 65px;
+    border-bottom: 1px solid #E8E8E8;
+}
+.DataIndexModuleListChartText{
+    line-height: 65px;
+    font-size: 16px;
+    letter-spacing:1px;
+    height: 65px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.DataIndexModuleListFoot{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #262626;
+    font-size: 12px;
+    font-weight: 600;
+}
+/* 图表化 访问量 和 销售额 */
+.DataIndexBlock{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    box-sizing: border-box;
+    background: #ffffff;
+    /* margin-bottom: 20px; */
+}
+.DataIndexBlockTitle{
+    width: 100%;
+    height: 45px;
+    /* border-bottom: 1px solid #E8E8E8; */
+}
+.DataIndexBlockChar{
+    width: 100%;
+    height: 500px;
+    padding-top: 15px;
+}
+
+/* 关键词 和 销售类目占比 */
+.DataIndexKeyCode{
+    width: 100%;
+    margin-bottom: 20px;
+    /* padding: 20px; */
+}
+.DataIndexKeyCodeList{
+    padding: 15px;
+    box-sizing: border-box;
+    background:'#ffffff'
+}
+.DataIndexKeyCodeBox{
+    background: #ffffff;
+    padding: 15px;
+    box-sizing: 'border-box'
+}
+.DataIndexKeyCodeName{
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+/* 热门搜索 */
+.DataIndexKeyCodeChart{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}

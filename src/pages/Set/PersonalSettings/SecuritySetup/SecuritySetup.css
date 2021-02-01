@@ -1,0 +1,44 @@
+.SecuritySetup{
+    width: 100%;
+    height: auto;
+
+}
+.SecuritySetupName{
+    width: 100%;
+    height: 40px;
+    font-weight: 500;
+    font-size: 18px;
+}
+.SecuritySetupList{
+    flex: 1;
+    height: 100px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E8E8E8;
+}
+.SecuritySetupListLeft{
+    color: #595959;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.SecuritySetupListLeft p{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.SecuritySetupListRight{
+    width: 100px;
+    height: 100%;
+    line-height: 100px;
+    text-align: center;
+}
+.SecuritySetupListRight span{
+    color: #1890FF;
+    font-size: 14px;
+    cursor: pointer;
+}

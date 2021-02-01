@@ -1,0 +1,20 @@
+.KeywordIndex{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.Carousel{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.CarouselBox{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 10px;
+}

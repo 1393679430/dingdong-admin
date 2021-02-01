@@ -1,0 +1,36 @@
+.ShippedComplete{
+    width: 100%;
+    height: auto;
+}
+.ShippedCompleteIcon{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.ShippedCompleteIconBox{
+    width: 100%;
+    height: 60px;
+    color: #52C41A;
+    display: block;
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+.ShippedCompleteIconSpan{
+    font-size: 20px;
+    color: #226622;
+    
+}
+.ShippedSubmitList{
+    background: #FAFAFA;
+    padding: 10px;
+}
+.ShippedSubmitList p{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+}
+.ShippedSubmitList p span{
+    margin-right: 10px;
+}

@@ -1,0 +1,15 @@
+.ShippedSubmit{
+    width: 100%;
+    height: auto;
+}
+.ShippedSubmitList{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #666666;
+    font-size: 14px;
+}
+.ShippedSubmitList span:nth-child(1){
+    color: #262626;
+    margin-right: 10px;
+}

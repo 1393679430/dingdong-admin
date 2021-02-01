@@ -1,0 +1,39 @@
+
+.normal {
+  /* font-family: Georgia, sans-serif; */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.Layouts{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.siders{
+  box-shadow: 2px 0px 8px #F3F4F5;
+}
+.Headers{
+  background: #FFFFFF;
+  margin: 0;
+  padding: 0;
+ 
+}
+.Contents{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none; 
+  overflow: '-moz-scrollbars-none';
+  scrollbar-width: none;   
+}
+.Contents::-webkit-scrollbar {
+  display: none;  /*  Chrome  */
+  width: 0 !important ; /*  Chrome  */
+}
+.children{
+  width: 100%;
+  /* height: calc(100% - 60px);
+  overflow: auto; */
+}

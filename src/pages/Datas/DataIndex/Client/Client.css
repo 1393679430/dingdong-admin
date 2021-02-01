@@ -1,0 +1,16 @@
+.Sale{
+    width: 100%;
+    height: 100%;
+}
+.SaleName{
+    width: 100%;
+    height: 30px;
+    padding: 0 15px;
+    line-height: 30px;
+    box-sizing: border-box;
+    color: #262626;
+}
+.SaleChars{
+    width: 100%;
+    height: 470px;
+}

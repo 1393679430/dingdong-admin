@@ -1,0 +1,13 @@
+.PersonalSettings{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.PersonalSettingsBox{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    box-sizing: border-box;
+    background: #ffffff;
+}

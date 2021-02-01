@@ -1,0 +1,59 @@
+.Visit{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.VisitLeft{
+    width: 70%;
+    height: 100%;
+    font-size: 12px;
+}
+.VisitRight{
+    width: 28%;
+    height: 440px;
+}
+.VisitCharTitle{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #262626;
+    font-size: 14px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.VisitRightCentent{
+    width: 100%;
+    height: 400px;
+    overflow-x: hidden;
+    /* overflow-y: auto; */
+    -ms-overflow-style: none; 
+    overflow: '-moz-scrollbars-none';
+    scrollbar-width: none;  /*  火狐   */
+}
+.VisitRightCentent::-webkit-scrollbar {
+    display: none;  /*  Chrome  */
+    width: 0 !important ; /*  Chrome  */
+  }
+.VisitRightCententList{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    padding: 0 15px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.VisitRightCententList:nth-child(2n-1){
+    background: #F9F8F8;
+}
+.VisitRightCententList:nth-child(2n){
+    background: #EDEBEB;
+}
+.VisitRightCententListLeft span:nth-child(1){
+    margin-right: 20px;
+}
+.VisitRightCententListRight span:nth-child(1){
+    color: #595959;
+}

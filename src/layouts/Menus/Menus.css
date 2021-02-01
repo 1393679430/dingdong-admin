@@ -1,0 +1,29 @@
+.MenusBox{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.namse{
+    width: 100%;
+    height: 64px;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 60px;
+}
+.MenusBoxList{
+    width: 100%;
+    height: calc(100% - 64px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    overflow: '-moz-scrollbars-none';
+    scrollbar-width: none;
+}
+.MenusBoxList::-webkit-scrollbar {
+    display: none;
+    width: 0 !important 
+  }
+.MenusBoxList a{
+    color: #ffffff;
+}
