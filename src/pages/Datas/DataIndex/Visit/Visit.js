@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import {
     Chart,
@@ -7,7 +6,6 @@ import {
     Tooltip,
   } from 'bizcharts';
 import styles from './Visit.css'
-// import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
 
 
 export default class Visit extends Component {
@@ -87,114 +85,19 @@ export default class Visit extends Component {
                 <div className={styles.VisitRight}>
                     <div className={styles.VisitCharTitle}>销售趋势排行榜TOP10</div>
                     <div className={styles.VisitRightCentent}>
-                        <div className={styles.VisitRightCententList}>
+                      {
+                        [1, 2, 3, 4].map((_, index) => (
+                          <div className={styles.VisitRightCententList} key={index}>
                             <div className={styles.VisitRightCententListLeft}>
-                                <span>1</span>
-                                <span>香菜 360g</span>
+                              <span>1</span>
+                              <span>香菜 360g</span>
                             </div>
                             <div className={styles.VisitRightCententListRight}>
-                                12564
+                              12564
                             </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>2</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>3</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>4</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>5</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>5</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>5</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>5</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>5</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>5</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>5</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
-                        <div className={styles.VisitRightCententList}>
-                            <div className={styles.VisitRightCententListLeft}>
-                                <span>5</span>
-                                <span>香菜 360g</span>
-                            </div>
-                            <div className={styles.VisitRightCententListRight}>
-                                12564
-                            </div>
-                        </div>
+                          </div>
+                        ))
+                      }
                     </div>
                 </div>
           </div>

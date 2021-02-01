@@ -55,6 +55,11 @@ export default {
           path: '/index/set/PersonalSettings/index',
           component: '../pages/Set/PersonalSettings/PersonalSettings',
         },
+        //待发货详情
+        {
+          path: '/index/order/shipped/index',
+          component: '../pages/Order/Shipped/ShippedIndex/ShippedIndex',
+        },
         //待退款列表
         {
           path: '/index/order/refund/index',
@@ -64,11 +69,6 @@ export default {
         {
           path: '/index/order/refund/details',
           component: '../pages/Order/Refund/RefundDetails/RefundDetails',
-        },
-        //待发货详情
-        {
-          path: '/index/order/shipped/index',
-          component: '../pages/Order/Shipped/ShippedIndex/ShippedIndex',
         },
         //待发货详情
         {

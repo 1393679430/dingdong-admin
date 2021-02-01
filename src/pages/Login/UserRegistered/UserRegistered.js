@@ -118,7 +118,8 @@ class UserRegistered extends Component {
             rules: [
               {
                 required: true,
-                message: '请输入密码' },
+                message: '请输入密码',
+              },
               {
                 min: 6,
                 max: 18,

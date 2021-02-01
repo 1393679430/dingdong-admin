@@ -102,7 +102,8 @@ class Headers extends Component {
           <a href="https://github.com/cgq001/dingdong-admin"
              alt=""
              style={{ color: '#666666' }}
-             target="_blank">
+             target="_blank"
+             rel="noopener noreferrer">
             <Icon type="github"
                   style={{ marginRight: '20px', fontSize: '22px' }}
             />

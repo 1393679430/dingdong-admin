@@ -1,15 +1,9 @@
-
 import { message, Modal } from 'antd';
-
-
 import router from 'umi/router';
-
 import axios from 'axios';
 import UserRedux from '../../models/UserRedux';
 
-
 const { confirm } = Modal;
-
 
 function showDeleteConfirm() {
   confirm({
@@ -43,9 +37,7 @@ instance.interceptors.request.use(config => {
   }
   // 加载动画
   message.loading({ content: 'Loading...', key });
-
   UserRedux.state.isLogin = true; // 是否正在登录
-
   return config;
 }, error => Promise.reject(error));
 //  响应请求
@@ -57,8 +49,6 @@ instance.interceptors.response.use(response => {
   } else if (response.data.code === 400 && response.data.msg) {
     message.error({ content: 'Loading...', key, duration: 1 });
     // router.push('/login');
-
-
     if (localStorage.getItem('token')) {
       localStorage.removeItem('token');
     }
@@ -70,11 +60,13 @@ instance.interceptors.response.use(response => {
     message.success({ content: 'Loading...', key, duration: 1 });
   }
 
-  UserRedux.state.isLogin = false; // 是否正在登录
+  UserRedux.state.isLogin = false;
+  console.log(response, 111)
   return response.data;
 }, error => {
   message.error({ content: '网络错误,请稍后重试', key, duration: 3 });
-  UserRedux.state.isLogin = false; // 是否正在登录
+  UserRedux.state.isLogin = false;
+  console.log(error, 2222)
   return Promise.reject(error);
 });
 

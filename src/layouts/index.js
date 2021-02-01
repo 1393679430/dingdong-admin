@@ -12,9 +12,6 @@ const { Header, Sider, Content } = Layout;
 
 
 export default class BasicLayout extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

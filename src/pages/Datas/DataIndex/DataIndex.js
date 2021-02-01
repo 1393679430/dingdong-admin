@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon, Menu } from 'antd';
+import { Row, Col, Icon } from 'antd';
 import styles from './DataIndex.css';
 
 import Visit from './Visit/Visit'; // 总销售额 分布
@@ -80,17 +80,6 @@ export default class DataIndex extends Component {
         </Row>
         {/* 图表化 访问量 和 销售额 */}
         <div className={styles.DataIndexBlock}>
-          {/* 顶部 */}
-          <div className={styles.DataIndexBlockTitle}>
-            <Menu mode="horizontal">
-              <Menu.Item key="mail">
-                销售额
-              </Menu.Item>
-              <Menu.Item key="app">
-                访问量
-              </Menu.Item>
-            </Menu>
-          </div>
           {/* 内容区域 */}
           <div className={styles.DataIndexBlockChar}>
             <Visit />

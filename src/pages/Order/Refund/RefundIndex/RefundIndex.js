@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-// import Link from 'umi/link';
 import { Row, Col, Input, Button, Table, Form } from 'antd';
 import Link from 'umi/link';
 import styles from './RefundIndex.css';
@@ -113,19 +111,18 @@ export default class RefundIndex extends Component {
 
       {
         title: '状态',
-        dataIndex: 'address',
+        dataIndex: 'status',
       },
       {
         title: '操作',
         dataIndex: 'operation',
-        render: (text, record) =>
-          (this.state.dataSource.length >= 1 ? (
-            // <Popconfirm title="确认删除吗?" onConfirm={() => this.handleDelete(record.key)} okText="确定" cancelText="取消">
+        render: () => (
+          this.state.dataSource.length >= 1 ? (
             <Link to="/index/order/refund/details">
               <Button type="primary" size="small">详情</Button>
             </Link>
-            // </Popconfirm>
-          ) : null),
+          ) : null
+        ),
       },
     ];
 
@@ -136,12 +133,14 @@ export default class RefundIndex extends Component {
           name: 'Edward King 0',
           age: '32',
           address: '仅退款',
+          status: '仅退款'
         },
         {
           key: '1',
           name: 'Edward King 1',
           age: '32',
           address: '退货/退款',
+          status: '退货/退款'
         },
       ],
       count: 2,
@@ -215,12 +214,6 @@ export default class RefundIndex extends Component {
             <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
               <Button type="primary" style={{ width: '100%' }}>查找</Button>
             </Col>
-            {/* <Col xs={24} sm={12} md={4} lg={4} xl={2} offset={1}>
-                            <Button type="primary" style={{width: '100%'}}>
-                                <Link to='/index/product/shoping/add'>添加</Link>
-                            </Button>
-                        </Col> */}
-
           </Row>
           <Row style={{ marginBottom: '15px' }}>
             <Col xs={24} sm={24} md={24} lg={24} xl={24}>
